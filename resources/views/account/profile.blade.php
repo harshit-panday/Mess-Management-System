@@ -122,11 +122,12 @@ header {
                 <li><a href=""><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
                 <li><a href=""><i class="fa-solid fa-cart-shopping"></i>Payments</a></li>
                 <li><a href=""><i class="fa-solid fa-user"></i>Profile</a></li>
+                <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
     <div class="main-content">
         <div>
-            <h1>Hello Customer...</h1>
+            <h1>Welcome, {{Auth::user()->name}}</h1>
         </div>
         <header>
             <center>
