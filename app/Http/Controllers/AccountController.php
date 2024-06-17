@@ -17,7 +17,7 @@ class AccountController extends Controller
     public function processRegister(Request $request){
         $validator=Validator::make($request->all(),[
         'name'=>'required|min:3',
-        'email'=>'required|email',
+        'email'=>'required|email|unique:users',
         'password'=>'required|confirmed|min:5',
         'password_confirmation'=>'required']);
 
@@ -59,6 +59,9 @@ class AccountController extends Controller
     }
 
     public function profile(){
+        $user=User::find(Auth::user()->id);
+        // dd($user);
+        
         return view('account.profile');
     }
 
