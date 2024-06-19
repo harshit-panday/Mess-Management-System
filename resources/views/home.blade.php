@@ -71,7 +71,7 @@
         </a>
       </li>
       <li class="nav-item mx-2">
-        <a class="nav-link" href="{{url('/account/login')}}" style="align-items: center; justify-content: center;">
+        <a class="nav-link" href="#" style="align-items: center; justify-content: center;">
           <img src="{{asset('images/admin.png')}}" style="width: 150px; height: 150px; display: block; margin: auto;"><center>Admin Login</center>
         </a>
       </li>

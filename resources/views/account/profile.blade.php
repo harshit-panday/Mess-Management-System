@@ -1,16 +1,12 @@
-{{-- @extends('layouts.app')
-
-@section('main') --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Customer Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-    * {
+    <style>
+        * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -109,25 +105,31 @@ header {
     }
 }
 
-    </style>
+        </style>
 </head>
 <body>
     <div class="sidebar">
-        <h2>Admin Dashboard</h2>
-        <img src="{{asset('images/Adminprofile.jpeg')}}" alt="" height="70px" width="80px" text-align="center">
+        <h3>Customer Dashboard</h3>
         <ul>
-            <li><a href=""><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
                 <li><a href=""><i class="fa-solid fa-bars"></i>Menu</a></li>
-                <li><a href="{{asset('images/Adminprofile.jpeg')}}"><i class="fa-solid fa-users"></i>Customer</a></li>
-                <li><a href=""><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
-                <li><a href=""><i class="fa-solid fa-cart-shopping"></i>Payments</a></li>
-                <li><a href=""><i class="fa-solid fa-user"></i>Profile</a></li>
+                <li><a href=""><i class="fa-solid fa-weight-scale"></i>Meal Log</a></li>
+                <li><a href=""><i class="fa-solid fa-border-all"></i>Total Meal</a></li>
+                <li><a href=""><i class="fa-solid fa-cart-shopping"></i>Payment</a></li>
+                <li><a href=""><i class="fa-regular fa-address-card"></i>About</a></li>
                 <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
     <div class="main-content">
         <div>
             <h1>Welcome, {{Auth::user()->name}}</h1>
+        </div>
+        <div class="user-input">
+            <label for="username">Enter Mess name:</label>
+        
+        </div>
+        <div>
+            <p>location :</p>
         </div>
         <header>
             <center>
@@ -137,20 +139,44 @@ header {
         </header>
         <div class="cards">
             <div class="card">
-                <h3>Breakfast</h3>
+                <h3>Breakfast</h3><br>
                 <p>Poha,<br><br>Vada,<br><br>idli,<br><br>masala idli </p>
             </div>
             <div class="card">
-                <h3>Lunch</h3>
+                <h3>Lunch</h3><br>
                 <p>Plain rice ,<br><br> moong +masoor dal,<br><br> mix veg</p>
             </div>
             <div class="card">
-                <h3>Dinner</h3>
+                <h3>Dinner</h3><br>
                 <p>Veg. fried rice,<br><br>dalmakhni,<br><br>aloosoyabean(gravy),<br><br>sujihalwa</p>
+            </div>
+        </div>
+        <header>
+            <center>
+                <h1>Meal Log</h1>
+            </center>
+            
+        </header>
+        <div class="cards">
+            <div class="card">
+                <h3>Type</h3><br>
+                <p>1. Breakfast</p>
+                <p>2. Lunch</p>
+                <p>3. Dinner</p>
+            </div>
+            <div class="card">
+                <h3>Date</h3><br>
+                <p>02-June-2024</p>
+                <p>02-June-2024</p>
+                <p>02-June-2024</p>
+            </div>
+            <div class="card">
+                <h3>Time</h3><br>
+                <p>9:00am to 11:00am</p>
+                <p>11:30am to 02:00pm</p>
+                <p>07:00pm to 10:00pm</p>
             </div>
         </div>
     </div>
 </body>
 </html>
-{{-- 
-@endsection --}}
