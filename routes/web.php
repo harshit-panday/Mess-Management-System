@@ -1,15 +1,12 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
 });
-
-
-
-
 
 Route::group(['prefix'=>'account'],function(){
     Route::group(['middleware'=>'guest'],function(){
@@ -25,3 +22,9 @@ Route::group(['prefix'=>'account'],function(){
 
     });
 });
+
+Route::get('admin/AdminRegister',[AdminController::class,'AdminRegister'])->name('admin.AdminRegister');
+Route::post('admin/AdminRegister',[AdminController::class,'AdminProcessRegister'])->name('admin.AdminProcessRegister');
+Route::get('admin/adminLogin',[AdminController::class,'login'])->name('admin.adminLogin');
+Route::post('admin/adminLogin',[AdminController::class,'adminAuthenticate'])->name('admin.adminAuthenticate');
+Route::get('admin/adminProfile',[AdminController::class,'adminProfile'])->name('admin.adminProfile');
