@@ -115,7 +115,7 @@ header {
                 <li><a href=""><i class="fa-solid fa-bars"></i>Menu</a></li>
                 <li><a href=""><i class="fa-solid fa-weight-scale"></i>Meal Log</a></li>
                 <li><a href=""><i class="fa-solid fa-border-all"></i>Total Meal</a></li>
-                <li><a href=""><i class="fa-solid fa-cart-shopping"></i>Payment</a></li>
+                <li><a href=""><i class="fa-solid fa-money-check-dollar"></i>Payment</a></li>
                 <li><a href=""><i class="fa-regular fa-address-card"></i>About</a></li>
                 <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
         </ul>
@@ -126,7 +126,7 @@ header {
         </div>
         <div class="user-input">
             <label for="username">Enter Mess name:</label>
-        
+
         </div>
         <div>
             <p>location :</p>

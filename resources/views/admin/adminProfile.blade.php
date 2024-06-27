@@ -120,7 +120,7 @@ header {
                 <li><a href=""><i class="fa-solid fa-bars"></i>Menu</a></li>
                 <li><a href="{{asset('images/Adminprofile.jpeg')}}"><i class="fa-solid fa-users"></i>Customer</a></li>
                 <li><a href=""><i class="fa-solid fa-clipboard-user"></i>Attendance</a></li>
-                <li><a href=""><i class="fa-solid fa-cart-shopping"></i>Payments</a></li>
+                <li><a href=""><i class="fa-solid fa-money-check-dollar"></i>Payments</a></li>
                 <li><a href=""><i class="fa-solid fa-user"></i>Profile</a></li>
                 <li><a href="{{route('admin.adminLogin')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
         </ul>
