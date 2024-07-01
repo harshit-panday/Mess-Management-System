@@ -13,8 +13,8 @@
                 <div class="d-flex justify-content-between">
                     <h1 class="text-center"><a href="index.html" class="h3 text-white text-decoration-none">Mess Management System</a></h1>
                     <div class="d-flex align-items-center navigation">
-                        <a href="login.html" class="text-white">Login</a>
-                    <a href="register.html" class="text-white ps-2">Register</a>
+                        <a href="{{route('admin.adminLogin')}}" class="text-white">Login</a>
+                    <a href="{{route('admin.AdminRegister')}}" class="text-white ps-2">Register</a>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                                     <div class="col-12">
                                         <hr class="mt-5 mb-4 border-secondary-subtle">
                                         <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-center">
-                                            <a href="register.html" class="link-secondary text-decoration-none">Create new account</a>
+                                            <a href="{{route('admin.AdminRegister')}}" class="link-secondary text-decoration-none">Create new account</a>
                                         </div>
                                     </div>
                                 </div>

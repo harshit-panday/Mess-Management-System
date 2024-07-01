@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,15 +17,31 @@ Route::group(['prefix'=>'account'],function(){
         Route::post('login',[AccountController::class,'authenticate'])->name('account.authenticate');
     });
 
-    Route::group(['middleware'=>'auth'],function(){
+    Route::group(['middleware'=> ['auth:web']],function(){
         Route::get('profile',[AccountController::class,'profile'])->name('account.profile');
         Route::get('logout',[AccountController::class,'logout'])->name('account.logout');
 
     });
 });
 
+
+
+Route::group(['middleware' => ['auth:admin']], function () {
+    Route::get('admin/AdminRegister',[AdminController::class,'AdminRegister'])->name('admin.AdminRegister');
+    Route::post('admin/AdminRegister',[AdminController::class,'AdminProcessRegister'])->name('admin.AdminProcessRegister');
+    Route::get('admin/adminLogin',[AdminController::class,'login'])->name('admin.adminLogin');
+    Route::post('admin/adminLogin',[AdminController::class,'adminAuthenticate'])->name('admin.adminAuthenticate');
+    Route::get('admin/adminProfile',[AdminController::class,'adminProfile'])->name('admin.adminProfile');
+    Route::get('admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+
+});
+
+
+
 Route::get('admin/AdminRegister',[AdminController::class,'AdminRegister'])->name('admin.AdminRegister');
 Route::post('admin/AdminRegister',[AdminController::class,'AdminProcessRegister'])->name('admin.AdminProcessRegister');
 Route::get('admin/adminLogin',[AdminController::class,'login'])->name('admin.adminLogin');
 Route::post('admin/adminLogin',[AdminController::class,'adminAuthenticate'])->name('admin.adminAuthenticate');
 Route::get('admin/adminProfile',[AdminController::class,'adminProfile'])->name('admin.adminProfile');
+Route::get('admin/logout',[AdminController::class,'logout'])->name('admin.logout');
+

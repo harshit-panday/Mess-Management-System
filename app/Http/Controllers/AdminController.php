@@ -33,6 +33,7 @@ class AdminController extends Controller
         $admin->name = $request->input('name');
         $admin->email = $request->input('email');
         $admin->password = Hash::make($request->input('password'));
+        $admin->role='admin';
         $admin->save();
 
         // Redirect to a success page or the admin dashboard
@@ -53,7 +54,12 @@ class AdminController extends Controller
             return redirect()->route('admin.adminLogin')->withInput()->withErrors($validator);
         }
             
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+        if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
+            if(Auth::guard('admin')->user()->role != "admin"){
+                Auth::guard('admin')->logout();
+                  return redirect()->route('admin.adminLogin')->with('error','You are not authorized to access this page');
+
+            }
             return redirect()->route('admin.adminProfile');
         }else{
             return redirect()->route('admin.adminLogin')->with('error','Either Email/Password is incorrect');
@@ -63,4 +69,9 @@ class AdminController extends Controller
         return view('admin.adminProfile');
     }
 
+    //this method will logout admin user
+    public function logout(){
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.adminLogin');
+    } 
 }

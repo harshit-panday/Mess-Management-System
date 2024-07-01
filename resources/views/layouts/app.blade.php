@@ -13,8 +13,8 @@
                 <div class="d-flex justify-content-between">
                     <h1 class="text-center"><a href="index.html" class="h3 text-white text-decoration-none">Mess management system</a></h1>
                     <div class="d-flex align-items-center navigation">
-                        <a href="login.html" class="text-white">Login</a>
-                    <a href="register.html" class="text-white ps-2">Register</a>
+                        <a href="{{route('account.login')}}" class="text-white">Login</a>
+                    <a href="{{route('account.register')}}" class="text-white ps-2">Register</a>
                     </div>
                 </div>
             </div>

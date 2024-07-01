@@ -30,6 +30,7 @@ class AccountController extends Controller
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);
+        $user->role='user';
         $user->save();
 
         return redirect()->route('account.login')->with('success','you have registered successfully.');
