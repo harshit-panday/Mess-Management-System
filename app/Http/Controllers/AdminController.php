@@ -224,4 +224,20 @@ class AdminController extends Controller
 
         return redirect()->route('products.index')->with('success', 'User deleted successfully.');
     }
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
 }

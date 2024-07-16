@@ -55,3 +55,17 @@ Route::controller(AdminController::class)->group(function(){
     Route::delete('/products/{product}','destroy')->name('products.destroy');    
 });
 
+
+
+
+
+Route::get('/users',[AccountController::class,'loadAllUsers'])->name('user');
+Route::get('/add/user',[AccountController::class,'loadAddUserForm']);
+
+Route::post('/add/user',[AccountController::class,'AddUser'])->name('AddUser');
+
+Route::get('/edit/{id}',[AccountController::class,'loadEditForm']);
+Route::get('/delete/{id}',[AccountController::class,'deleteUser']);
+
+Route::post('/edit/user',[AccountController::class,'EditUser'])->name('EditUser');
+

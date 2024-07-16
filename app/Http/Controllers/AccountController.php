@@ -70,4 +70,52 @@ class AccountController extends Controller
         Auth::logout();
         return redirect()->route('account.login');
     }
+
+
+
+// /***********user profile update *******************
+
+public function loadAllUsers() {
+    // Fetch the authenticated user
+    $all_users = Auth::user();
+
+    // Check if the user is authenticated
+    if (!$all_users) {
+        return redirect()->route('account.login')->with('error', 'You need to login first.');
+    }
+
+    // Return the view with the user data
+    return view('users', compact('all_users'));
+}
+
+public function EditUser(Request $request){
+    //update user here
+    $request->validate([
+        'name'=> 'required| string',
+        'email'=> 'required| email| unique:users',
+        // 'password'=> 'required| confirmed| min:4| max:8',
+    ]);
+
+    try{
+        //update user here
+        $update_user = User::where('id',$request->user_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+        
+        return redirect('/users')->with('success','user updated successfully');
+    } catch(\Exception $e){
+        return redirect('/add/user')->with('fail', $e->getMessage());
+
+    }
+}
+
+public function loadEditForm($id){
+    $user = User::find($id);
+
+    return view('edit-user', compact('user'));
+}
+
+
+
 }
