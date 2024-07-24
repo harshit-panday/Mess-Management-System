@@ -92,7 +92,7 @@ public function EditUser(Request $request){
     //update user here
     $request->validate([
         'name'=> 'required| string',
-        'email'=> 'required| email| unique:users',
+        'email'=> 'required| email',
         // 'password'=> 'required| confirmed| min:4| max:8',
     ]);
 

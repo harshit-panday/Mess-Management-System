@@ -87,6 +87,21 @@
             text-align: center;
         }
 
+
+        .profile-container {
+            width: 150px; /* Fixed width */
+            height: 150px; /* Fixed height */
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px #0000001a;
+            border: 3px solid #ffffff; /* Border color */
+        }
+            .CustomerProfile{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+           
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -117,13 +132,17 @@
     <div class="sidebar">
         <h3>Customer Dashboard</h3>
         <ul>
+            <div class="profile-container">
+                @if(Auth::user()->image !="")
+                <img src="{{asset('uploads/products/'.Auth::user()->image)}}" class="CustomerProfile" alt="Customer Profile Images">
+                @endif
+            </div>
             <li><a href="index.html"><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
             <li><a href=""><i class="fa-solid fa-bars"></i>Menu</a></li>
             <li><a href=""><i class="fa-solid fa-weight-scale"></i>Meal Log</a></li>
             <li><a href=""><i class="fa-solid fa-border-all"></i>Total Meal</a></li>
             <li><a href=""><i class="fa-solid fa-money-check-dollar"></i>Payment</a></li>
             <li><a href="{{route('user')}}"><i class="fa-regular fa-address-card"></i>Profile</a></li>
-            <li><a href=""><i class="fa-regular fa-address-card"></i>About</a></li>
             <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>
         </ul>
     </div>
