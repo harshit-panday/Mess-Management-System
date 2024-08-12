@@ -57,6 +57,36 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="form-floating mb-3">
+                                                <input type="text" value="{{old('phone')}}" class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" placeholder="+91 1234567890" >
+                                                <label for="text" class="form-label">Phone no</label>
+                                                @error('phone')
+                                                <p class="invalid-feedback">{{$message}} </p>
+                                                    
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" value="{{old('mess_name')}}" class="form-control @error('mess_name') is-invalid @enderror" name="mess_name" id="mess_name" placeholder=" mess name" >
+                                                <label for="text" class="form-label">Mess Name</label>
+                                                @error('mess_name')
+                                                <p class="invalid-feedback">{{$message}} </p>
+                                                    
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" value="{{old('location')}}" class="form-control @error('location') is-invalid @enderror" name="location" id="location" placeholder=" mess location" >
+                                                <label for="text" class="form-label">Location</label>
+                                                @error('location')
+                                                <p class="invalid-feedback">{{$message}} </p>
+                                                    
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-floating mb-3">
                                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="" placeholder="Password" >
                                                 <label for="password" class="form-label">Password</label>
                                                 @error('password')

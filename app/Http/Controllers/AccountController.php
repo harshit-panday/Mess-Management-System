@@ -93,6 +93,9 @@ public function EditUser(Request $request){
     $request->validate([
         'name'=> 'required| string',
         'email'=> 'required| email',
+        'mess'=>'string',
+        'location'=>'string',
+        'phone'=>'string',
         // 'password'=> 'required| confirmed| min:4| max:8',
     ]);
 
@@ -101,6 +104,9 @@ public function EditUser(Request $request){
         $update_user = User::where('id',$request->user_id)->update([
             'name' => $request->name,
             'email' => $request->email,
+            'mess_name'=>$request->mess_name,
+            'location'=>$request->location,
+            'phone'=>$request->phone,
         ]);
         
         return redirect('/users')->with('success','user updated successfully');

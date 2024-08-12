@@ -53,6 +53,27 @@
                                     @enderror
                             </div>
                             <div class="mb-3">
+                                <label for="text" class="form-label h5">Phone no</label>
+                                <input type="text"  value="{{old('phone')}}" class="form-control  @error('phone') is-invalid @enderror" name="phone" id="phone" placeholder="+91 1234567890" >
+                                @error('phone')
+                                <p class="invalid-feedback">{{$message}}</p>
+                                @enderror
+                        </div>
+                            <div class="mb-3">
+                                <label for="text" class="form-label h5">Mess name</label>
+                                <input type="text"  value="{{old('mess_name')}}" class="form-control  @error('mess_name') is-invalid @enderror" name="mess_name" id="mess_name" placeholder="mess name" >
+                                @error('mess_name')
+                                <p class="invalid-feedback">{{$message}}</p>
+                                @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="text" class="form-label h5">Location</label>
+                            <input type="text"  value="{{old('location')}}" class="form-control  @error('location') is-invalid @enderror" name="location" id="location" placeholder="enter Location" >
+                            @error('location')
+                            <p class="invalid-feedback">{{$message}}</p>
+                            @enderror
+                    </div>
+                            <div class="mb-3">
                                     <label for="password" class="form-label h5">Password</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="" placeholder="Password" >
                                     @error('password')

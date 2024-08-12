@@ -38,6 +38,9 @@ class AdminController extends Controller
         $admin->email = $request->input('email');
         $admin->password = Hash::make($request->input('password'));
         $admin->role = 'admin';
+        $admin->phone=$request->input('phone');
+        $admin->mess_name=$request->input('mess_name');
+        $admin->location=$request->input('location');
         $admin->save();
 
         return redirect()->route('admin.adminLogin')->with('success', 'Admin registered successfully');
@@ -131,6 +134,9 @@ class AdminController extends Controller
         $product->meal = $request->meal;
         $product->price = $request->price;
         $product->email = $request->email;
+        $product->mess_name = $request->mess_name;
+        $product->phone = $request->phone;
+        $product->location = $request->location;
         $product->password = Hash::make($request->password);
         $product->role = 'user';
         $product->save();

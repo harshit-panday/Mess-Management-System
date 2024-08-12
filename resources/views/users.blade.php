@@ -31,8 +31,20 @@
                                 <td>{{ $all_users->name }}</td>
                             </tr>
                             <tr>
+                                <th>Phone:</th>
+                                <td>{{ $all_users->phone }}</td>
+                            </tr>
+                            <tr>
                                 <th>Email:</th>
                                 <td>{{ $all_users->email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Mess name:</th>
+                                <td>{{ $all_users->mess_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Location:</th>
+                                <td>{{ $all_users->location }}</td>
                             </tr>
                             <tr>
                                 <th>Registration Date:</th>

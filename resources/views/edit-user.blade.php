@@ -25,14 +25,28 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    {{-- Example for phone number field --}}
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
+                        <label for="mess_name" class="form-label">Mess name</label>
+                        <input type="mess_name" name="mess_name" value="{{ $user->mess_name }}" class="form-control" id="mess_name" placeholder="Enter mess name">
+                        @error('mess_name')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label for="phone" class="form-label">Phone</label>
                         <input type="text" name="phone" value="{{ $user->phone }}" class="form-control" id="phone" placeholder="Enter phone number">
                         @error('phone')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
-                    </div> --}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="location" value="{{ $user->location }}" class="form-control" id="location" placeholder="Enter Location">
+                        @error('location')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>

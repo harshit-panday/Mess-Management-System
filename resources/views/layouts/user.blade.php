@@ -137,10 +137,9 @@
                 <img src="{{asset('uploads/products/'.Auth::user()->image)}}" class="CustomerProfile" alt="Customer Profile Images">
                 @endif
             </div>
-            <li><a href="index.html"><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
+            <li><a href="{{route('account.profile')}}"><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
             <li><a href=""><i class="fa-solid fa-bars"></i>Menu</a></li>
             <li><a href=""><i class="fa-solid fa-weight-scale"></i>Meal Log</a></li>
-            <li><a href=""><i class="fa-solid fa-border-all"></i>Total Meal</a></li>
             <li><a href=""><i class="fa-solid fa-money-check-dollar"></i>Payment</a></li>
             <li><a href="{{route('user')}}"><i class="fa-regular fa-address-card"></i>Profile</a></li>
             <li><a href="{{route('account.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>

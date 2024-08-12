@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('meal');
             $table->double('price',10,2);
+            $table->string('mess_name');
+            $table->string('phone');
+            $table->string('location');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role',['user','admin'])->default('user');

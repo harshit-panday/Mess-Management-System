@@ -5,11 +5,11 @@
         <h1>Welcome, {{Auth::user()->name}}</h1>
     </div>
     <div class="user-input">
-        <label for="username">Enter Mess name:</label>
+        <label for="username">Enter Mess name: {{Auth::user()->mess_name}}</label>
 
     </div>
     <div>
-        <p>location :</p>
+        <p>location : {{Auth::user()->location}}</p>
     </div>
     <header>
         <center>
