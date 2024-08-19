@@ -34,10 +34,13 @@ class AdminController extends Controller
 
         // Save the new admin
         $admin = new Admin();
-        $admin->name = $request->input('name');
-        $admin->email = $request->input('email');
+        $admin->name = $request->name;
+        $admin->email = $request->email;
         $admin->password = Hash::make($request->input('password'));
         $admin->role = 'admin';
+        $admin->breakfast='';
+        $admin->lunch='';
+        $admin->dinner='';
         $admin->phone=$request->input('phone');
         $admin->mess_name=$request->input('mess_name');
         $admin->location=$request->input('location');
@@ -78,6 +81,7 @@ class AdminController extends Controller
     // Display the admin profile page
     public function adminProfile()
     {
+        
         return view('admin.adminProfile');
     }
 
@@ -234,13 +238,110 @@ class AdminController extends Controller
 
 
 
+    // menu
+
+
+
+public function Menu()
+{
+    $menuData = Admin::latest()->paginate(10);
+
+    return view('menus.Menu',compact('menuData'))
+        ->with('num1', (request()->input('page', 1) - 1) * 10);
+}
+
+/**
+ * menuShow the form for creating a new resource.
+ */
+public function newMenu()
+{
+    return view('menus.newMenu');
+}
+
+/**
+ * menuStore a newly newMenud resource in storage.
+ */
+public function menuStore(Request $request)
+{
+$request->validate([
+    'breakfast' => 'required|string',
+    'lunch' => 'required|string',
+    'dinner' => 'required|string',
+]);
+
+Admin::create($request->all());
+
+return redirect()->route('menus.Menu')
+                 ->with('success', 'Menu created successfully.');
+}
+
+
+/**
+ * Display the specified resource.
+ */
+public function menuShow(string $id)
+{
+    return view('menus.menuShow');
+}
+
+/**
+ * menuShow the form for editMenuing the specified resource.
+ */
+public function editMenu(string $id)
+{
+    $menu = Admin::find($id);
+    if (!$menu) {
+        return redirect()->route('menus.Menu')->with('error', 'Menu not found.');
+    }
+    return view('menus.editMenu', compact('menu'));
+}
+
+/**
+ * menuUpdate the specified resource in storage.
+ */
+public function menuUpdate(Request $request, string $id)
+{
+$menu = Admin::find($id);
+
+if (!$menu) {
+    return redirect()->route('menus.Menu')->with('error', 'Menu not found.');
+}
+
+$request->validate([
+    'breakfast' => 'required|string',
+    'lunch' => 'required|string',
+    'dinner' => 'required|string',
+]);
+
+$menu->update($request->all());
+
+return redirect()->route('menus.Menu')
+                 ->with('success', 'Menu menuUpdated successfully.');
+}
+
+
+/**
+ * Remove the specified resource from storage.
+ */
+public function menuDestroy(string $id)
+{
+    $menu = Admin::find($id);
+
+    if (!$menu) {
+        return redirect()->route('menus.Menu')
+                     ->with('error', 'Menu not found');
+}
+    $menu->delete();
+
+    return redirect()->route('menus.Menu')
+                    ->with('success','Menus deleted successfully');
+}
 
 
 
 
 
 
-  
 
 
 

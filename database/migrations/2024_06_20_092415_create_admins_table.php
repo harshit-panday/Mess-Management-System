@@ -21,6 +21,9 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role',['user','admin'])->default('admin');
+            $table->string('breakfast');
+            $table->string('lunch');
+            $table->string('dinner');
             $table->rememberToken();
             $table->timestamps();
         });
