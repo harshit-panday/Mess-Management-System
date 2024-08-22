@@ -35,6 +35,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::group(['middleware'=> ['auth:admin']],function(){
         Route::get('adminProfile',[AdminController::class,'adminProfile'])->name('admin.adminProfile');
         Route::get('logout',[AdminController::class,'logout'])->name('admin.logout');
+        Route::get('adminDashboardProfile', [AdminController::class, 'loadAllAdmins'])->name('admin.adminDashboardProfile');
+
 
     });
 });
@@ -100,4 +102,9 @@ Route::put('menus/{menu}', [AdminController::class, 'menuUpdate'])->name('menus.
 
 // Route for deleting a specific menu
 Route::delete('menus/{id}', [AdminController::class, 'menuDestroy'])->name('menus.menuDestroy');
+
+
+
+
+
 

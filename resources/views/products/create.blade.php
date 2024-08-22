@@ -28,8 +28,12 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label h5">Type of Meal</label>
-                                <input value="{{ old('meal') }}" type="text" class="@error('meal') is-invalid @enderror form-control form-control-lg" placeholder="Meal" name="meal">
+                                <label for="meal" class="form-label h5">Meal</label>
+                                <select name="meal" id="meal" class="@error('meal') is-invalid @enderror form-control form-control-lg">
+                                    <option value="monthly">Monthly Subscription</option>
+                                    <option value="weekly" >Weekly Subscription</option>
+                                    <option value="per_meal" >Per Meal</option>
+                                </select>
                                 @error('meal')
                                     <p class="invalid-feedback">{{ $message }}</p>
                                 @enderror
@@ -61,14 +65,14 @@
                         </div>
                             <div class="mb-3">
                                 <label for="text" class="form-label h5">Mess name</label>
-                                <input type="text"  value="{{old('mess_name')}}" class="form-control  @error('mess_name') is-invalid @enderror" name="mess_name" id="mess_name" placeholder="mess name" >
+                                <input type="text"  value="{{ Auth::guard('admin')->user()->mess_name }}" class="form-control  @error('mess_name') is-invalid @enderror" name="mess_name" id="mess_name" placeholder="mess name" readonly>
                                 @error('mess_name')
                                 <p class="invalid-feedback">{{$message}}</p>
                                 @enderror
                         </div>
                         <div class="mb-3">
                             <label for="text" class="form-label h5">Location</label>
-                            <input type="text"  value="{{old('location')}}" class="form-control  @error('location') is-invalid @enderror" name="location" id="location" placeholder="enter Location" >
+                            <input type="text"  value="{{ Auth::guard('admin')->user()->location }}" class="form-control  @error('location') is-invalid @enderror" name="location" id="location" placeholder="enter Location" readonly>
                             @error('location')
                             <p class="invalid-feedback">{{$message}}</p>
                             @enderror

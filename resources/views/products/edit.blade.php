@@ -29,8 +29,12 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label h5">Meal</label>
-                                <input value="{{ old('meal',$product->meal) }}" type="text" class="@error('meal') is-invalid @enderror form-control form-control-lg" placeholder="Sku" name="meal">
+                                <label for="meal" class="form-label h5">Meal</label>
+                                <select name="meal" id="meal" class="@error('meal') is-invalid @enderror form-control form-control-lg">
+                                    <option value="monthly" {{ old('meal', $product->meal) == 'monthly' ? 'selected' : '' }}>Monthly Subscription</option>
+                                    <option value="weekly" {{ old('meal', $product->meal) == 'weekly' ? 'selected' : '' }}>Weekly Subscription</option>
+                                    <option value="per_meal" {{ old('meal', $product->meal) == 'per_meal' ? 'selected' : '' }}>Per Meal</option>
+                                </select>
                                 @error('meal')
                                     <p class="invalid-feedback">{{ $message }}</p>
                                 @enderror

@@ -342,7 +342,20 @@ public function menuDestroy(string $id)
 
 
 
+//admin Profile
+// admin Profile
+public function loadAllAdmins() {
+    // Fetch the authenticated admin user
+    $admin = Auth::guard('admin')->user();
 
+    // Check if the user is authenticated
+    if (!$admin) {
+        return redirect()->route('account.admin')->with('error', 'You need to login first.');
+    }
+
+    // Return the view with the user data
+    return view('admin/adminDashboardProfile', compact('admin'));
+}
 
 
 
