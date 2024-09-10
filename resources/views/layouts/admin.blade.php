@@ -54,7 +54,7 @@
         }
 
         ul li:hover a {
-            padding-left: 50px;
+            padding-left: 20px;
         }
 
         .sidebar ul a i {
@@ -121,7 +121,7 @@
             <li><a href="{{route('admin.adminProfile')}}"><i class="fa-solid fa-qrcode"></i>Dashboard</a></li>
             <li><a href="{{route('menus.Menu')}}"><i class="fa-solid fa-bars"></i>Menu</a></li>
             <li><a href="{{route('products.index')}}"><i class="fa-solid fa-users"></i>Customer</a></li>
-            <li><a href=""><i class="fa-solid fa-border-all"></i>Attendance</a></li>
+            <li><a href="{{route('attendance.index')}}"><i class="fa-solid fa-border-all"></i>Attendance</a></li>
             <li><a href=""><i class="fa-solid fa-money-check-dollar"></i>Payment</a></li>
             <li><a href="{{route('admin.adminDashboardProfile')}}"><i class="fa-regular fa-address-card"></i>Profile</a></li>
             <li><a href="{{route('admin.logout')}}"><i class="fa-solid fa-sign-out-alt"></i>Logout</a></li>

@@ -25,7 +25,7 @@
                             <th>Breakfast</th>
                             <th>Lunch</th>
                             <th>Dinner</th>
-                            <th width="200px" class="text-center">Actions</th>
+                            <th width="200px" class="text-center">Actions</th> 
                         </tr>
                     </thead>
                     <tbody>

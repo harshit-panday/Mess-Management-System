@@ -72,7 +72,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="text" class="form-label h5">Location</label>
-                            <input type="text"  value="{{ Auth::guard('admin')->user()->location }}" class="form-control  @error('location') is-invalid @enderror" name="location" id="location" placeholder="enter Location" readonly>
+                            <input type="text"  value="{{ Auth::guard('admin')->user()->location }}" class="form-control  @error('location') is-invalid @enderror" name="location" id="location" placeholder="enter Address" readonly>
                             @error('location')
                             <p class="invalid-feedback">{{$message}}</p>
                             @enderror

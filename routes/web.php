@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AdminController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
@@ -103,7 +104,12 @@ Route::put('menus/{menu}', [AdminController::class, 'menuUpdate'])->name('menus.
 // Route for deleting a specific menu
 Route::delete('menus/{id}', [AdminController::class, 'menuDestroy'])->name('menus.menuDestroy');
 
-
+/**
+ * Attendance
+ */
+Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+Route::post('/attendance', [AttendanceController::class, 'store'])->name('attendance.store');
+Route::get('/attendance/view', [AttendanceController::class, 'view'])->name('attendance.view');
 
 
 
